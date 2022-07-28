@@ -12,15 +12,59 @@
     </author>
     
       <item>
-        <title>Coming Soon</title>
-        <description>&lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;https://pbs.twimg.com/media/EkYyiVzXYAY2z7N.jpg:large&quot; /&gt;
-&lt;/p&gt;
+        <title>How to bypass Windows 10 Login Panel</title>
+        <description>&lt;p&gt;&lt;em&gt;Hi, I’m going to show you how to bypass the Login Panel of Windows 10 💻&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;access-to-the-recovery-panel&quot;&gt;Access to the Recovery Panel&lt;/h2&gt;
+
+&lt;p&gt;Whe need to introduce on the Recovery Panel, for this whe need to shutdown our windows.&lt;/p&gt;
+
+&lt;p&gt;After that when our pc show the Windows logo, whe need push the botton of power again.&lt;/p&gt;
+
+&lt;p&gt;With that we makes that the pc run in the mode of &lt;em&gt;“preparing automatic repair”&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Windows ask us if we want to shutdown the pc or going to the Advanced Options, we select the advanced options.&lt;/p&gt;
+
+&lt;p&gt;I show a image that say what do you need to select on this options:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/MpJ7jSB/Table.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After that we have a panel that say, Select a system image backup, we click on continue.&lt;/p&gt;
+
+&lt;p&gt;Now on advanced and select search for a system image on the network.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/VSntF4Q/Search-on-the-system.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;file-explorer-path&quot;&gt;File Explorer Path&lt;/h2&gt;
+
+&lt;p&gt;Now, we go to this path of the system &lt;em&gt;C:\Windows\System32\&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;changing-names-of-the-exe-programs&quot;&gt;Changing names of the .exe programs&lt;/h2&gt;
+
+&lt;p&gt;Now on the path we need to locate the program called &lt;em&gt;utilman.exe&lt;/em&gt; and &lt;em&gt;cmd.exe&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;We need to change utilman.exe to utilman.ORI.exe and change cmd.exe to utilman.exe&lt;/p&gt;
+
+&lt;p&gt;After that, close all windows and click on continuous.&lt;/p&gt;
+
+&lt;h2 id=&quot;pwning-the-shell-how-administrator&quot;&gt;Pwning the Shell how Administrator&lt;/h2&gt;
+
+&lt;p&gt;And now in the login panel whe need to select this icon&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/NnbfX5d/Bottom.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After we see a shell, ok now lets type whoami&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/3R00Rh9/LOL-nt-authority-system.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we put this command:  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;net user {USER_WHO_WANTS_DUMP} *&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;At this point we pwned the Windows 10 🔓&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 27 Jul 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:8000//Windows-10-Bypassing</link>
-        <link href="http://localhost:8000/Windows-10-Bypassing"/>
-        <guid isPermaLink="true">http://localhost:8000/Windows-10-Bypassing</guid>
+        <link>http://localhost:8000//Bypassing-Windows-10</link>
+        <link href="http://localhost:8000/Bypassing-Windows-10"/>
+        <guid isPermaLink="true">http://localhost:8000/Bypassing-Windows-10</guid>
       </item>
     
   </channel>
