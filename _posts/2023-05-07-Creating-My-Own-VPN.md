@@ -52,21 +52,21 @@ PassPhrase: PUTONEPLS https://passwordsgenerator.net/
 After that, U need to transfer the .pub to the vps. So how we are GigaChads, we transfer that with scp.
 
 ``` sh
-scp debVpn.pub 149.23.55.21@IP:
+scp debVpn.pub GOD@IP:
 ```
 
 ### Vps Machine
 ``` sh
 cd ~/
 mkdir .ssh
-cat debVpn >> .ssh/authorized_keys
-rm debVpn
+cat debVpn.pub >> .ssh/authorized_keys
+rm debVpn.pub
 ```
 
 Now let's to configure ssh config,
 
 ``` sh
-apt install vi
+sudo apt install vim
 vi /etc/ssh/sshd_config
 ```
 
@@ -92,7 +92,7 @@ And u can now exit from the vps, and probe the new conf.
 Now for the access need to type the follow command.
 
 ``` sh
-ssh -i .ssh/debVpn GOD@149.23.55.21
+ssh -i .ssh/debVpn GOD@IP
 Enter the passphrase for the key: THEPASSNERD
 ```
 
@@ -124,7 +124,7 @@ Now execute this .sh with sudo privileges.
 
 ``` sh
 chmod +x ./openvpn-install.sh
-./openvpn-install.sh
+sudo ./openvpn-install.sh
 IPV6: n
 port: 1194
 Protocol: 1 UDP
@@ -152,7 +152,7 @@ sudo systemctl restart openvpn
 Now download ur .opvn with sftp.
 
 ``` sh
-sftp -i .ssh/debVpn GOD@149.23.55.21
+sftp -i .ssh/debVpn GOD@IP
 Enter passphrase: dumbputpass
 
 sftp> get VPN.opvn
