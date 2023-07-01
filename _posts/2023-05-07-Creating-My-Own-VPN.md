@@ -5,7 +5,7 @@ published: true
 
 *Hello guys, After a long time, I'm here to create another post to how to create a vpn with a vps.*
 
-<img src="https://i.ytimg.com/vi/Lk_v6Q0YsNo/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDBZF_TX9epQhWWJSeRRv7Cy2WpRA">
+<img src="https://i.imgur.com/qeeZ3LA.png">
 
 ## Select a VPS Service
 On this days a lot of vps service are online, I prefere to choose does who are offshore vps services to **avoid the police**(this is for educational only for my safety!!!). If you want a recommendation, buy a vps with unlimited traffic(or 2 TB). And 1Gbps velocity is good. And the other like cpu and ram doesn't matter.
@@ -15,7 +15,7 @@ I give a link of my friend of Doxbin who run a site who select a few good vps se
 
 [OffShoreDoxBin](https://offshore.cat)
 
-<img src="https://a.pomf.cat/zwmafv.png" width="200" height="200">
+<img src="https://i.scdn.co/image/ab67616d0000b273855142ad12485b5db91d3224" width="200" height="200">
 
 ## Preconfigurations
 First of all
