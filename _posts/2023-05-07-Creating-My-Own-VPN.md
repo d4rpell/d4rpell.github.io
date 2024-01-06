@@ -57,6 +57,7 @@ scp debVpn.pub GOD@IP:
 
 ### Vps Machine
 ``` sh
+su GOD
 cd ~/
 mkdir .ssh
 cat debVpn.pub >> .ssh/authorized_keys
@@ -67,7 +68,7 @@ Now let's to configure ssh config,
 
 ``` sh
 sudo apt install vim
-vi /etc/ssh/sshd_config
+sudo vi /etc/ssh/sshd_config
 ```
 
 Change the follow parameters to create a sec ssh(don't forget that the FBI need to launch a 0day to ur ssh)
@@ -93,7 +94,7 @@ Now for the access need to type the follow command.
 
 ``` sh
 ssh -i .ssh/debVpn GOD@IP
-Enter the passphrase for the key: THEPASSNERD
+Enter the passphrase for the key: THEPASS
 ```
 
 ### Vps Machine
@@ -116,7 +117,7 @@ sudo apt install openvpn -y
 After we need to see this git repository who is a beautiful bash code.
 
 ``` sh
-apt install wget
+sudo apt install wget
 wget https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
 ```
 
@@ -138,7 +139,7 @@ Client name: VPN # Name of the .ovpn file
 So after that put our openvpn with 0log, for if the police raid the vps.
 
 ``` sh
-vi /etc/openvpn/server.conf
+sudo vi /etc/openvpn/server.conf
 
 verb 0 # Change 3 to 0, this is literally no log.
 log-append /dev/null # Add
