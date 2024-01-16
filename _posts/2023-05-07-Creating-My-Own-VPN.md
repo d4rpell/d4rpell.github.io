@@ -13,7 +13,7 @@ On this days a lot of vps service are online, I prefere to choose does who are o
 
 I give a link of my friend of Doxbin who run a site who select a few good vps services. I Choose a debian 11 OS
 
-[OffShoreDoxBin](https://offshore.cat)
+[OffShoreDoxBin](https://offshore.xbdm.fun)
 
 <img src="https://i.scdn.co/image/ab67616d0000b273855142ad12485b5db91d3224" width="200" height="200">
 
@@ -154,7 +154,7 @@ Now download ur .opvn with sftp.
 
 ``` sh
 sftp -i .ssh/debVpn GOD@IP
-Enter passphrase: dumbputpass
+Enter passphrase: putpass
 
 sftp> get VPN.opvn
 ```
