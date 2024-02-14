@@ -29,7 +29,7 @@ So, Now is the moment to create a safe environment on our server.
 First we need to create a username and put a passwd for the acc.
 
 ``` sh
-useradd -m GOD
+useradd -d /home/GOD -m -s /bin/bash GOD
 passwd GOD
 apt install sudo 
 usermod -aG sudo GOD
