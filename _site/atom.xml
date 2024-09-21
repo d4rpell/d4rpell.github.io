@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Happy Blog</title>
-    <description>A Jekyll Blog Theme For Hackers</description>
+    <description>Ready to learn?</description>
     <link>http://localhost:8000</link>
     <atom:link href="http://localhost:8000/feed.xml" rel="self" type="application/rss+xml" />
     <author>
       <name>d4rpell</name>
-      <email>someone@somewebsite.somedomain</email>
+      <email>noemailjet@gmail.com</email>
       <uri>https://d4rpell.github.io</uri>
     </author>
     
