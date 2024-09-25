@@ -10,7 +10,7 @@ I'm a guy from Spain who is 18 years old and I’ve been studying cybersecurity 
 I'm **curious**, **hard worker**, **enthusiast**, **self-taught**, **a person with a lot of attitude** and **I will learn all what i need to learn**.
 
 # My first steps in the Pentesting Web.
-When I decide to start in the Pentesting Web I was 14 years old (2020), in the beggining I started to learn the different types of existing vulnerabilites (XXS, SQLI, RCE, RFI, LFI etc...).
+When I decide to start in the Pentesting Web I was 14 years old (2020), in the beggining I started to learn the different types of existing vulnerabilites (XSS, SQLI, RCE, RFI, LFI etc...).
 <br> After 2 Month's of starting to study a lot, I discover my first vulnerability in a public company of my country. That was a DoS attack, the company in that moment was using a CMS that actually I don't remember.
 So I Discover that if you go into a endpoint and start sending a few requests with a long header, it can drop the entire system. That was reported and shared to the company affected, and a couple of days after my advice the vulnerability was fixed.
 
