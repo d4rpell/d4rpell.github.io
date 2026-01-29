@@ -4,7 +4,7 @@ title: About
 ---
 
 # Inveterate Pentester
-I'm a guy from Spain who is 18 years old and I’ve been studying cybersecurity since I was 10 years old. I started studying a lot of Pentesting Web when I was 14 years old. Today I’m focused in the branch of Red-Team, actually studying the last year of a Higher Grade called ASIR (Administration of Computer Systems and Networks). I started this project at the age of 16 (2022).
+I'm a guy from Spain who is 20 years old and I’ve been studying cybersecurity since I was 10 years old. I started studying a lot of Pentesting Web when I was 14 years old. Today I’m focused in the branch of Red-Team, actually graduated of a Higher Grade called ASIR (Administration of Computer Systems and Networks). I started this project at the age of 16 (2022).
 
 # My Way of Beign.
 I'm **curious**, **hard worker**, **enthusiast**, **self-taught**, **a person with a lot of attitude** and **I will learn all what i need to learn**.
@@ -20,7 +20,7 @@ After my first exploit, that was only the beggining.
 Actually I have too many acknowledgment about Pentesting, not only the Web, also I started to learn Pentesting on Active Directory Environment and VPN Network Pentest & Pivoting. Also I've been learning about Ransomware Attacks(Techniques & Methodology) & Initial Access Brokers and how they gain access into the VPN of different high revenue corps.
 
 # What happen with HacktheBox?
-Well If you see my hackthebox profile, you can notice that I haven't played hack the box for 2 years because on the moment I suffered of a Burn Out.
+Well If you see my hackthebox profile, you can notice that I haven't played hack the box for +2 years because on the moment I suffered of a Burn Out.
 I love hacking and HackTheBox is a great platform for sure, but you need to much time to expend there, and a motivation, my motivation was to learn a lot of Pentesting Web. But after pwn +120 machines , they all start to become repetitive & unrealistic.
 
 # My motivations.
