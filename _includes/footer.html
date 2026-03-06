@@ -1,9 +1,45 @@
 <footer>
-  <a href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US">
-    <span>
-        <b>{{ site.owner}}</b>
-    </span>
-    {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}
-    <span>© {{ currentyear }}</span>
-  </a>
+  <div class="container">
+    d4rpell . {% capture currentyear %}{{ 'now' | date: "%Y" }}{% endcapture %}{{ currentyear }}
+  </div>
 </footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">^</button>
+
+<script>
+// Theme toggle
+(function() {
+  var btn = document.getElementById('themeToggle');
+  var html = document.documentElement;
+
+  function updateBtn() {
+    var t = html.getAttribute('data-theme');
+    btn.textContent = t === 'light' ? '(*) light' : '( ) dark';
+  }
+
+  updateBtn();
+
+  btn.addEventListener('click', function() {
+    var current = html.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateBtn();
+  });
+})();
+
+// Back to top
+(function() {
+  var btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      btt.classList.add('visible');
+    } else {
+      btt.classList.remove('visible');
+    }
+  });
+  btt.addEventListener('click', function() {
+    window.scrollTo({ top: 0 });
+  });
+})();
+</script>

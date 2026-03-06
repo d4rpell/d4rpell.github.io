@@ -4,7 +4,7 @@ title: About
 ---
 
 # Inveterate Pentester
-I'm a guy from Spain who is 20 years old and I’ve been studying cybersecurity since I was 10 years old. I started studying a lot of Pentesting Web when I was 14 years old. Today I’m focused in the branch of Red-Team, actually graduated of a Higher Grade called ASIR (Administration of Computer Systems and Networks). I started this project at the age of 16 (2022).
+I'm a guy from Spain who is 20 years old and I've been studying cybersecurity since I was 10 years old. I started studying a lot of Pentesting Web when I was 14 years old. Today I'm focused in the branch of Red-Team, actually graduated of a Higher Grade called ASIR (Administration of Computer Systems and Networks). I started this project at the age of 16 (2022).
 
 # My Way of Beign.
 I'm **curious**, **hard worker**, **enthusiast**, **self-taught**, **a person with a lot of attitude** and **I will learn all what i need to learn**.
@@ -29,9 +29,4 @@ My motivation to work in the future is to work in the field of cybersecurity, be
 # New Content on the Blog
 I have some ideas for the blog, and I actually preparing advanced documentation about security & hacking.
 
-## My Profile
-These are my social networks
-
-[Twitter](https://twitter.com/d4rpell)
-[Github](https://github.com/d4rpell)
-[Hackthebox](https://app.hackthebox.com/profile/376167)
+[Twitter](https://twitter.com/d4rpell) . [Github](https://github.com/d4rpell) . [Hackthebox](https://app.hackthebox.com/profile/376167)

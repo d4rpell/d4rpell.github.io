@@ -2,8 +2,124 @@
 layout: default
 ---
 
-<article>
-  <h2>{{ page.title }}</h2>
-  <time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
-  {{ content }}
+<article id="post-article">
+  <div class="post-header">
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+      <span class="dot">.</span>
+      <span>d4rpell</span>
+      <span class="reading-time" id="readingTime"></span>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <hr>
+    {{ content }}
+    <hr>
+
+    <div class="post-nav">
+      {% if page.previous.url %}
+        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}">prev</a>
+      {% else %}
+        <span style="color:var(--border)">prev</span>
+      {% endif %}
+      <span class="dot"> . </span>
+      <a href="{{ "/" | prepend: site.baseurl | replace: '//', '/' }}">home</a>
+      <span class="dot"> . </span>
+      {% if page.next.url %}
+        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}">next</a>
+      {% else %}
+        <span style="color:var(--border)">next</span>
+      {% endif %}
+    </div>
+  </div>
 </article>
+
+<script>
+// Reading time estimate
+(function() {
+  var content = document.querySelector('.post-content');
+  if (!content) return;
+  var text = content.textContent || '';
+  var words = text.trim().split(/\s+/).length;
+  var minutes = Math.max(1, Math.round(words / 200));
+  var el = document.getElementById('readingTime');
+  if (el) el.textContent = minutes + ' min read';
+})();
+
+// Reading progress bar
+(function() {
+  var bar = document.getElementById('progressBar');
+  var article = document.getElementById('post-article');
+  if (!bar || !article) return;
+
+  window.addEventListener('scroll', function() {
+    var rect = article.getBoundingClientRect();
+    var articleTop = rect.top + window.scrollY;
+    var articleHeight = rect.height;
+    var scrolled = window.scrollY - articleTop;
+    var progress = Math.max(0, Math.min(100, (scrolled / (articleHeight - window.innerHeight)) * 100));
+
+    if (window.scrollY > articleTop - 100) {
+      bar.classList.add('visible');
+      bar.style.width = progress + '%';
+    } else {
+      bar.classList.remove('visible');
+    }
+  });
+})();
+
+// Wrap code blocks with copy button
+(function() {
+  var pres = document.querySelectorAll('.post-content pre');
+  pres.forEach(function(pre) {
+    if (pre.parentElement.classList.contains('code-block-wrapper')) return;
+    var wrapper = document.createElement('div');
+    wrapper.className = 'code-block-wrapper';
+    var btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'copy';
+    btn.addEventListener('click', function() {
+      var code = pre.querySelector('code') || pre;
+      navigator.clipboard.writeText(code.textContent).then(function() {
+        btn.textContent = 'copied';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(btn);
+    wrapper.appendChild(pre);
+  });
+})();
+
+// Add > prefix and anchor links to h2 headings
+(function() {
+  var headings = document.querySelectorAll('.post-content h2');
+  headings.forEach(function(h2) {
+    // Generate ID if missing
+    if (!h2.id) {
+      h2.id = h2.textContent.trim().toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+    }
+
+    // Add > prefix
+    var gt = document.createElement('span');
+    gt.className = 'gt';
+    gt.textContent = '>';
+    h2.insertBefore(gt, h2.firstChild);
+
+    // Add anchor link
+    var anchor = document.createElement('a');
+    anchor.className = 'heading-anchor';
+    anchor.href = '#' + h2.id;
+    anchor.textContent = '#';
+    h2.appendChild(anchor);
+  });
+})();
+</script>

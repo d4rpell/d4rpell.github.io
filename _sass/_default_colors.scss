@@ -1,19 +1,27 @@
-/*
-   original: https://github.com/pages-themes/hacker 
-*/
+// Raw Ink / Rust -- Design tokens
 
-$apple-blossom: #ac4142;
-$alto: #d0d0d0;
-$bouquet: #aa759f;
-$chelsea-cucumber: #90a959;
-$cod-grey: #151515;
-$conifer: #b5e853;
-$dove-grey: #666;
-$gallery: #eaeaea;
-$grey: #888;
-$gulf-stream: #75b5aa;
-$hippie-blue: #6a9fb5;
-$potters-clay: #8f5536;
-$rajah: #f4bf75;
-$raw-sienna: #d28445;
-$silver-chalice: #aaa;
+// Dark mode (default)
+$bg:            #121010;
+$bg-surface:    #1e1a1a;
+$text:          #c8c0b8;
+$text-muted:    #5c5450;
+$accent:        #d06840;
+$accent-hover:  #e88060;
+$accent-faded:  rgba(208, 104, 64, 0.12);
+$code-bg:       #0e0c0c;
+$border:        #302828;
+$selection-bg:  rgba(208, 104, 64, 0.25);
+$selection-text: #fff;
+
+// Light mode
+$bg-light:            #f5f0e8;
+$bg-surface-light:    #ebe4d8;
+$text-light:          #2e2420;
+$text-muted-light:    #8a7e74;
+$accent-light:        #b85530;
+$accent-hover-light:  #d06840;
+$accent-faded-light:  rgba(184, 85, 48, 0.1);
+$code-bg-light:       #e4ddd2;
+$border-light:        #d0c8bc;
+$selection-bg-light:  rgba(184, 85, 48, 0.2);
+$selection-text-light: #1a1210;
